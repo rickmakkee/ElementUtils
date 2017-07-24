@@ -28,21 +28,20 @@ class ElementUtil
 	 */
 	public static CLOSEST_SELECT(el:HTMLElement, className:string):HTMLElement
 	{
-		let parent = <HTMLElement>el.parentNode;
+        let parent = el;
 
-		while (parent && parent.classList && !parent.classList.contains(className))
-		{
-			parent = <HTMLElement>parent.parentNode;
+        while (parent && parent.classList && !parent.classList.contains(className))
+        {
+            parent = <HTMLElement>parent.parentNode;
 
-			if (parent && parent.classList && parent.classList.contains(className))
-			{
-				return parent;
-			}
+            if (parent && parent.classList && parent.classList.contains(className))
+            {
+                return parent;
+            }
 
-			if (!parent) return null;
-		}
+        }
 
-		return null;
+        return null;
 	}
 }
 
